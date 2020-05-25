@@ -1,6 +1,7 @@
 const reducer = (state, action) => {
     const { type, payload } = action
     const { iceCreams, cart, Sundaes, Scoops, Cones } = state
+
     switch (type) {
         case 'API_SUCCESS': {
             return {
@@ -45,7 +46,11 @@ const reducer = (state, action) => {
 
             const { index } = payload
             const Id = cart[index].id
+
             iceCreams[Id - 1].incart = "false"
+
+            iceCreams[Id - 1].incart = "false"
+
             cart.splice(index, 1)
 
             return {
@@ -79,6 +84,7 @@ const reducer = (state, action) => {
 
         }
         case 'ITEM': {
+
             const { index } = payload
             return {
                 ...state,
@@ -152,7 +158,17 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 Cones: [...Cones],
-                cart: [...cart, Cones[index]],
+                cart: [...cart, Cones[index]]
+            }
+        }
+        case 'RESET': {
+            for (var i = 0; i < iceCreams.length; i++) {
+                iceCreams[i].incart = "false"
+            }
+            return {
+                ...state,
+                iceCreams: [...iceCreams],
+                cart: []
             }
         }
         default: {
