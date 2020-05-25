@@ -28,9 +28,7 @@ const Cones = () => {
                                     </div>
                                     <button disabled={incart == "true" ? true : false} className="btn btn-primary btn-sm" onClick={() => addCitem(index)}>BuyNow</button>
                                 </div>
-                                <Link to="/cart">
-                                    <button className="btn btn-primary btn-sm" onClick={() => addCitem(index)}>BuyNow</button>
-                                </Link></div>
+                               
                         </div>
                 ))}
             </div>
